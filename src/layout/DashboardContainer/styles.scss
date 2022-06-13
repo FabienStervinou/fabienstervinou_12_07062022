@@ -1,0 +1,10 @@
+@import '../../assets/styles/_variables.scss';
+
+.dashboardContainer {
+  display: grid;
+  grid-template-areas: 
+    "activity activity activity statBar"
+    "activity activity activity statBar"
+    "objectif performance score statBar"
+    "objectif performance score statBar";
+}
