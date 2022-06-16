@@ -1,6 +1,7 @@
 import './style.scss';
 import useFetch from '../../../services/hooks/useFetch';
 import {
+  ResponsiveContainer,
   BarChart,
   CartesianGrid,
   XAxis,
@@ -11,21 +12,21 @@ import {
 } from 'recharts'
 
 function Activy() {
-  const {data, loading, error} = useFetch('activity')
-
-  console.log('log data :', data)
+  const { data } = useFetch('activity')
 
   return ( 
     <div className="activity">
-      <BarChart width={730} height={250} data={data}>
-        <CartesianGrid strokeDasharray="3 3" />
-        <XAxis dataKey="name" />
-        <YAxis />
-        <Tooltip />
-        <Legend />
-        <Bar dataKey="kilogram" fill="#282D30" />
-        <Bar dataKey="calories" fill="#FF0000" />
-    </BarChart>
+      <ResponsiveContainer>
+        <BarChart width={730} height={250} data={data}>
+          <CartesianGrid strokeDasharray="3 3" />
+          <XAxis dataKey="name" />
+          <YAxis />
+          <Tooltip />
+          <Legend />
+          <Bar dataKey="kilogram" fill="#282D30" />
+          <Bar dataKey="calories" fill="#FF0000" />
+      </BarChart>
+      </ResponsiveContainer>
     </div>
   );
 }
