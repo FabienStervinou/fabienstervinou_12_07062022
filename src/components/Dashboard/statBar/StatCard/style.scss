@@ -1,0 +1,39 @@
+@import '../../../../assets/styles/_variables.scss';
+
+.statCard {
+  display: flex;
+  flex-direction: row;
+  background-color: $grey-bg;
+  border-radius: 5px;
+  margin-bottom: 40px;
+  padding: 30px;
+
+  &-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    height: fit-content;
+    border-radius: 6px;
+
+    &.calories {
+      background-color: $red-bg;
+    }
+
+    &.proteines {
+      background-color: $blue-bg;
+    }
+
+    &.glucides {
+      background-color: $yellow-bg;
+    }
+
+    &.lipides {
+      background-color: $pink-bg;
+    }
+  }
+
+  &-type {
+    text-transform: capitalize;
+  }
+}
