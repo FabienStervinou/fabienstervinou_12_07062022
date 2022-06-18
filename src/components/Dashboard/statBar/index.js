@@ -11,9 +11,9 @@ function StatBar() {
         data 
         ? <>
           <StatCard type="calories" data={data.calorieCount} unit="kCal"/>
-          <StatCard type="proteines" data={data.carbohydrateCount}/>
-          <StatCard type="glucides" data={data.lipidCount}/>
-          <StatCard type="lipides" data={data.proteinCount}/>
+          <StatCard type="proteines" data={data.carbohydrateCount} unit="g"/>
+          <StatCard type="glucides" data={data.lipidCount} unit="g"/>
+          <StatCard type="lipides" data={data.proteinCount} unit="g"/>
         </>
         : <></>
         
