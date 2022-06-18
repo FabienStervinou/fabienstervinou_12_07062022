@@ -54,7 +54,6 @@ function retrieveData (response, path, service = null) {
     switch (path) {
         case '':
             if (service === "stat") {
-                console.log('tester log response.data.data.keyData :', response.data.data.keyData)
                 return response.data.data.keyData
             }
             return response.data.data
@@ -66,7 +65,12 @@ function retrieveData (response, path, service = null) {
             return response.data.data.sessions
 
         case 'performance':
-            return response.data.data
+            let performance = response.data.data
+            for (let i = 0; i < performance.data.length; i++) {
+                const element = performance.data[i];
+                element.kind = performance.kind[i + 1 ]
+            }
+            return performance.data
     
         default:
             break;
