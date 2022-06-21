@@ -25,7 +25,7 @@ export default function useFetch(dataType, service = null){
 
                     // TODO: Make app running with mocked data
                     if (process.env.REACT_APP_USE_MOKED_DATA) {
-                        console.log('%cuseMockedData', 'background-color:purple; padding: 5px; color:white;')
+                        // console.log('%cuseMockedData', 'background-color:purple; padding: 5px; color:white;')
                     }
                     // Manage data by dataType path
                     const cleanData = retrieveData(response, dataType, service)
@@ -38,7 +38,7 @@ export default function useFetch(dataType, service = null){
                 }
             }
         )()
-    }, [])
+    }, [dataType, service, baseURL])
 
     return { data, error, loading }
 }
@@ -56,21 +56,44 @@ function retrieveData (response, path, service = null) {
             if (service === "stat") {
                 return response.data.data.keyData
             }
+
+            if (service === "score") {
+                let scoreData = response.data.data
+                let res = [
+                    {name: 'score', value: scoreData.score ? scoreData.score : scoreData.todayScore},
+                    {name: 'antiScore', value: 1 - (scoreData.score ? scoreData.score : scoreData.todayScore)}
+                ]
+                return res
+            }
             return response.data.data
 
         case 'activity':
             return response.data.data.sessions
 
         case 'average-sessions':
-            return response.data.data.sessions
+            let sessions = response.data.data.sessions
+            const SESSION_FRENCH = ['L','M','M','J','V','S','D']
+            for (let i = 0; i < sessions.length; i++) {
+                const element = sessions[i];
+                element.day = SESSION_FRENCH[i]
+            }
+            return sessions
 
-        case 'performance':
+            case 'performance':
             let performance = response.data.data
+            const ACTIVITY_FRENCH = [
+                'Cardio',
+                'Energie',
+                'Endurance',
+                'Force',
+                'Vitesse',
+                'Intensité'
+            ]
             for (let i = 0; i < performance.data.length; i++) {
                 const element = performance.data[i];
-                element.kind = performance.kind[i + 1 ]
+                element.kind = ACTIVITY_FRENCH[i]
             }
-            return performance.data
+            return performance.data.reverse()
     
         default:
             break;
