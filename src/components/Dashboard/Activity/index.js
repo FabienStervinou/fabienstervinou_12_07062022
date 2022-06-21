@@ -14,13 +14,15 @@ import {
 function Activy() {
   const data = useFetch('activity')
 
-  console.log('log data.data :', data.data)
   return ( 
     <div className="activity">
+      <div className="activity-topContent">
+        <h2 className="activity-title">Activité quotidienne</h2>
+      </div>
       <ResponsiveContainer>
         <BarChart 
           data={data.data}
-          // barCategoryGap={80}
+          barCategoryGap='30%'
         >
           <CartesianGrid 
             strokeDasharray="3 3"
@@ -48,21 +50,26 @@ function Activy() {
           <Tooltip />
           <Legend 
             wrapperStyle={{
-              top: -15
+              top: -20
             }}
+            iconType="cercle"
+            payload={[
+              { value: 'Poids (kg)', type: 'cercle', id: 'right', color: '#282D30' },
+              { value: 'Calories brûlées (kCal)', type: 'cercle', id: 'left', color: '#FF0000' }
+              ]}
           />
           <Bar 
             yAxisId="right" 
             dataKey="kilogram" 
-            fill="#282D30" 
+            fill="#282D30"
             maxBarSize={10}
             yAxisTicks={60} 
             radius={[50, 50 ,0 ,0]}
           />
           <Bar 
-            yAxisId="left" 
-            dataKey="calories" 
-            fill="#FF0000" 
+            yAxisId="left"
+            dataKey="calories"
+            fill="#FF0000"
             maxBarSize={10}
             radius={[50, 50 ,0 ,0]}
           />
