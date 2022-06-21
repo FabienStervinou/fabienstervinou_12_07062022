@@ -2,4 +2,21 @@
 
 .objectif {
   grid-area: objectif;
+  background-color: $red;
+  border-radius: 5px;
+  position: relative;
+
+  &-title {
+    position: absolute;
+    top: 30px;
+    left: 25px;
+    color: $white;
+    opacity: 50%;
+  }
+
+  &-tooltip {
+    background-color: $white;
+    font-size: 12px;
+    padding: 9px 7px;
+  }
 }
