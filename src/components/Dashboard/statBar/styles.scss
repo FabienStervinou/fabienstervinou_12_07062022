@@ -2,4 +2,7 @@
 
 .statBar {
   grid-area: statBar;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
