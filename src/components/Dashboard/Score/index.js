@@ -4,10 +4,7 @@ import useFetch from '../../../services/hooks/useFetch';
 
 function Score() {
   const scoreData = useFetch('', 'score')
-
   const COLORS = ['#FF0000', 'transparent']
-
-  console.log('log score-content :', scoreData.data)
 
   return ( 
     <div className="score">
