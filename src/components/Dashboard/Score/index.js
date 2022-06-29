@@ -28,19 +28,27 @@ function Score() {
               <Pie 
                 data={scoreData.data}
                 dataKey="value"
-                innerRadius={85} 
-                outerRadius={100} 
-                startAngle={90} 
-                endAngle={450} 
+                innerRadius={85}
+                outerRadius={100}
+                startAngle={90}
+                endAngle={450}
                 cornerRadius={100}
                 >
                 {scoreData.data.map((entry, index) => (
-                  <Cell 
-                    key={`cell-${index}`} 
-                    fill={COLORS[index % COLORS.length]} 
+                  <Cell
+                    key={`cell-${index}`}
+                    fill={COLORS[index % COLORS.length]}
                     strokeWidth={0}
                   />
                 ))}
+              </Pie>
+
+              <Pie
+              data={[{name: '', value: 1}]}
+              dataKey='value'
+              outerRadius={85}
+              fill='#FFFFFF'
+              >
               </Pie>
           </PieChart>
         </ResponsiveContainer>
