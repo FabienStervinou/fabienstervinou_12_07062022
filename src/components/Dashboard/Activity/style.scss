@@ -11,4 +11,22 @@
     margin: 0;
     padding: 0;
   }
+
+  &-tooltip {
+    &Container {
+      display: flex;
+      flex-direction: column;
+      background-color: $red;
+      font-size: 12px;
+      padding: 9px 7px;
+      color: $white;
+    }
+
+    &Item {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 24px;
+    }
+  }
 }
