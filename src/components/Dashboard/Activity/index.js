@@ -11,6 +11,22 @@ import {
   Bar
 } from 'recharts'
 
+const CustomTooltip = ({ payload, active }) => {
+  if (active) {
+    return (
+      <div className="activity-tooltipContainer">
+        <span className='activity-tooltipItem'>
+          {payload[0].value}kg
+        </span>
+        <span className='activity-tooltipItem'>
+          {payload[1].value}Kcal
+        </span>
+      </div>
+    )
+  }
+  return null
+}
+
 function Activy() {
   const data = useFetch('activity')
 
@@ -47,7 +63,9 @@ function Activy() {
             tickMargin={10}
             allowDecimals={false}
           />
-          <Tooltip />
+          <Tooltip
+            content={CustomTooltip}
+          />
           <Legend 
             wrapperStyle={{
               top: -20
