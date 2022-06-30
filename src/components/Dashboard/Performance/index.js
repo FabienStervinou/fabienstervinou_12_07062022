@@ -8,10 +8,12 @@ function Performance() {
 
   return ( 
     <div className="performance">
-      <ResponsiveContainer>
+      <ResponsiveContainer
+        height='100%'
+      >
         <RadarChart 
           data={data} 
-          outerRadius={70}
+          outerRadius={50}
           >
           <PolarGrid 
             radialLines={false}
