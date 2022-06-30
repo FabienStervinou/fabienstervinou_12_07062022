@@ -2,7 +2,7 @@ import './style.scss';
 import useFetch from '../../../services/hooks/useFetch';
 import { ResponsiveContainer, LineChart, Line, XAxis, YAxis, Tooltip } from 'recharts';
 
-const customTickAxis = ({ x, y, payload }) => {
+const CustomTickAxis = ({ x, y, payload }) => {
   return (
     <g 
       transform={`translate(${x}, ${y + 5})`}
@@ -33,7 +33,7 @@ const CustomHover = ({ points }) => {
   ) 
 }
 
-const customToolTip = ({ payload, active }) => {
+const CustomTooltip = ({ payload, active }) => {
   if (active) {
     return (
       <span className='objectif-tooltip'>
@@ -55,7 +55,7 @@ function Objectif() {
       <ResponsiveContainer >
         <LineChart 
           data={data.data}
-          margin={{ top: 50, bottom: 40, left: 5, right: 0}}
+          margin={{ top: 50, bottom: 40, left: 0, right: 0}}
           >
 
           <XAxis
@@ -63,7 +63,7 @@ function Objectif() {
             axisLine={false}
             tickLine={false}
             tickSize={10}
-            tick={customTickAxis}
+            tick={CustomTickAxis}
           />
 
           <YAxis
@@ -73,7 +73,7 @@ function Objectif() {
           />
 
           <Tooltip
-            content={customToolTip}
+            content={CustomTooltip}
             cursor={<CustomHover />}
           />
 
