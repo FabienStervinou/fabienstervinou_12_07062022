@@ -44,7 +44,7 @@ export default function useFetch(dataType, service = null){
 }
 
 /**
-  * Return the good data format
+ * Return the good data format
  * @param {Json} response 
  * @param {String} path 
  * @param {String} service default null
@@ -77,9 +77,15 @@ function retrieveData (response, path, service = null) {
                 const element = sessions[i];
                 element.day = SESSION_FRENCH[i]
             }
-            return sessions
 
-            case 'performance':
+            // Duplicate first and late data to match design
+            let res = [...sessions]
+            res.unshift({'day': '', 'sessionLength': sessions[0].sessionLength})
+            res.push({'day': '', 'sessionLength': sessions[sessions.length - 1].sessionLength})
+
+            return res
+
+        case 'performance':
             let performance = response.data.data
             const ACTIVITY_FRENCH = [
                 'Cardio',
