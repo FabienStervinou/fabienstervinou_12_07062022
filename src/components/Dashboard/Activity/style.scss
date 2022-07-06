@@ -2,9 +2,13 @@
 
 .activity {
   grid-area: activity;
+  background-color: $grey-bg;
+  border-radius: 5px;
+  padding: 40px 22px 30px;
 
   &-topContent {
-
+    position: relative;
+    top: -15px;
   }
 
   &-title {
@@ -27,6 +31,36 @@
       align-items: center;
       justify-content: center;
       height: 24px;
+    }
+  }
+
+  .legend {
+    list-style: none;
+    display: flex;
+    justify-content: end;
+
+    li {
+      position: relative;
+      margin-left: 25px;
+      color: $grey-text;
+
+      &::before {
+        content: '';
+        position: absolute;
+        left: -16px;
+        top: 6px;
+        height: 8px;
+        width: 8px;
+        border-radius: 100%;
+      }
+    }
+
+    :first-child::before {
+      background-color: $red;
+    }
+
+    :nth-child(2)::before {
+      background-color: $black;
     }
   }
 }
