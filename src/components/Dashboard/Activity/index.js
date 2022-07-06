@@ -13,6 +13,7 @@ import {
 
 /**
  * If the tooltip is active, return a div with two spans, otherwise return null
+ * @param ReactElement
  * @returns A function that returns a div with two spans inside.
  */
 const CustomTooltip = ({ payload, active }) => {
@@ -33,7 +34,7 @@ const CustomTooltip = ({ payload, active }) => {
 
 /**
  * It returns a list of items, each of which is a string
- * @param props - the props object that is passed to the component
+ * @param props
  * @returns A list of the two values of the payload array.
  */
 const RenderLegend = (props) => {
