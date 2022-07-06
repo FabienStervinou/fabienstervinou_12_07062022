@@ -79,6 +79,7 @@ function Activy() {
           <XAxis 
             tickMargin={15}
             tickLine={false}
+            dataKey="index"
           />
           <YAxis 
             yAxisId="left" 

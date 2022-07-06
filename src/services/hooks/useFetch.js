@@ -68,7 +68,14 @@ function retrieveData (response, path, service = null) {
             return response.data.data
 
         case 'activity':
-            return response.data.data.sessions
+            let activityData = response.data.data.sessions
+
+            for (let i = 0; i < activityData.length; i++) {
+                const data = activityData[i];
+                data.index = i + 1
+            }
+
+            return activityData
 
         case 'average-sessions':
             let sessions = response.data.data.sessions
