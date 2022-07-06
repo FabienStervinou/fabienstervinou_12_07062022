@@ -11,6 +11,10 @@ import {
   Bar
 } from 'recharts'
 
+/**
+ * If the tooltip is active, return a div with two spans, otherwise return null
+ * @returns A function that returns a div with two spans inside.
+ */
 const CustomTooltip = ({ payload, active }) => {
   if (active) {
     return (
@@ -27,6 +31,34 @@ const CustomTooltip = ({ payload, active }) => {
   return null
 }
 
+/**
+ * It returns a list of items, each of which is a string
+ * @param props - the props object that is passed to the component
+ * @returns A list of the two values of the payload array.
+ */
+const RenderLegend = (props) => {
+  const payload = [
+        { value: 'Poids (kg)'},
+        { value: 'Calories brûlées (kCal)' }
+      ];
+
+  return (
+    <ul className='legend'>
+      {
+        payload.map((entry, index) => (
+          <li key={`item-${index}`}>
+            {entry.value}
+          </li>
+        ))
+      }
+    </ul>
+  );
+}
+
+/**
+ * It creates a bar chart with two bars, one for the weight and one for the calories.
+ * @returns A React component
+ */
 function Activy() {
   const data = useFetch('activity')
 
@@ -68,13 +100,9 @@ function Activy() {
           />
           <Legend 
             wrapperStyle={{
-              top: -20
+              top: -50
             }}
-            iconType="cercle"
-            payload={[
-              { value: 'Poids (kg)', type: 'cercle', id: 'right', color: '#282D30' },
-              { value: 'Calories brûlées (kCal)', type: 'cercle', id: 'left', color: '#FF0000' }
-              ]}
+            content={RenderLegend}
           />
           <Bar 
             yAxisId="right" 
