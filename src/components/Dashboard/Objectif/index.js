@@ -2,6 +2,11 @@ import './style.scss';
 import useFetch from '../../../services/hooks/useFetch';
 import { ResponsiveContainer, LineChart, Line, XAxis, YAxis, Tooltip } from 'recharts';
 
+/**
+ * Custom on hover shadow on right part of the chart
+ * @param ReactElement
+ * @returns A custom tick axis.
+ */
 const CustomTickAxis = ({ x, y, payload }) => {
   return (
     <g 
@@ -21,6 +26,11 @@ const CustomTickAxis = ({ x, y, payload }) => {
   )
 }
 
+/**
+ * Custom point visible on hover
+ * @param ReactElement
+ * @returns A rectangle that is the width and height of the chart.
+ */
 const CustomHover = ({ points }) => {
   return (
     <rect
@@ -33,6 +43,11 @@ const CustomHover = ({ points }) => {
   ) 
 }
 
+/**
+ * Custom tooltip
+ * @param ReactElement
+ * @returns A custom tooltip for the chart.
+ */
 const CustomTooltip = ({ payload, active }) => {
   if (active) {
     return (
@@ -44,14 +59,18 @@ const CustomTooltip = ({ payload, active }) => {
   return null
 }
 
+/**
+ * It creates a line chart, create with weight and calories.
+ * @returns A React component
+ */
 function Objectif() {
   const data = useFetch('average-sessions')
 
   return ( 
     <div className="objectif">
-    <div className="objectif-title">
-      Durée moyenne des <br /> sessions
-    </div>
+      <div className="objectif-title">
+        Durée moyenne des <br /> sessions
+      </div>
       <ResponsiveContainer >
         <LineChart 
           data={data.data}
