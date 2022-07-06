@@ -12,9 +12,9 @@ import {
 } from 'recharts'
 
 /**
- * If the tooltip is active, return a div with two spans, otherwise return null
+ * Custom tooltip
  * @param ReactElement
- * @returns A function that returns a div with two spans inside.
+ * @returns A custom tooltip for the chart.
  */
 const CustomTooltip = ({ payload, active }) => {
   if (active) {
