@@ -4,6 +4,10 @@ import Panting from '../../assets/img/panting.svg'
 import Swim from '../../assets/img/swim.svg'
 import Yoga from '../../assets/img/yoga.svg'
 
+/**
+ * Aside menu contain link to differente sports 
+ * @returns JSX element
+ */
 function AsideMenu() {
   return ( 
     <aside className="aside">

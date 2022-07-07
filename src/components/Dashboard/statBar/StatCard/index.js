@@ -1,9 +1,15 @@
+import PropTypes from "prop-types"
 import './style.scss';
 import Calories from '../../../../assets/img/calories.svg';
 import Glucides from '../../../../assets/img/glucides.svg';
 import Lipides from '../../../../assets/img/lipides.svg';
 import Proteines from '../../../../assets/img/proteines.svg';
 
+/**
+ * It returns a card with 
+ * @param props - {type, data, unit}
+ * @returns A div with a class of statCard.
+ */
 function StatCard(props) {
   let svg
 
@@ -38,8 +44,10 @@ function StatCard(props) {
   );
 }
 
-StatCard.defaultProps = {
-  
+StatCard.propTypes = {
+  data: PropTypes.number,
+  type: PropTypes.string,
+  unit: PropTypes.string
 }
 
 export default StatCard;

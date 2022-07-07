@@ -2,6 +2,10 @@ import './style.scss';
 import { ResponsiveContainer, PieChart, Pie, Cell } from 'recharts';
 import useFetch from '../../../services/hooks/useFetch';
 
+/**
+ * Create a pie chart to represente the profil score
+ * @returns A div with a title, a div with a value and a div with a text.
+ */
 function Score() {
   const scoreData = useFetch('', 'score')
   const COLORS = ['#FF0000', 'transparent']
