@@ -21,15 +21,45 @@ export default function useFetch(dataType, service = null){
             async function() {
                 try {
                     setLoading(true)
-                    const response = await axios.get(`${baseURL}/${dataType}`)
+                    if (process.env.REACT_APP_ENV === 'dev') {
+                        const {
+                            USER_MAIN_DATA,
+                            USER_ACTIVITY,
+                            USER_AVERAGE_SESSIONS,
+                            USER_PERFORMANCE
+                        } = require('../mocks/data')
 
-                    // TODO: Make app running with mocked data
-                    if (process.env.REACT_APP_USE_MOKED_DATA) {
-                        // console.log('%cuseMockedData', 'background-color:purple; padding: 5px; color:white;')
+                        const response = {data: {data: {}}}
+
+                        switch (dataType) {
+                            case '':
+                                response.data.data = USER_MAIN_DATA.find(element => element.id === parseInt(userId, 10))
+                                break
+
+                            case 'activity':
+                                response.data.data = USER_ACTIVITY.find(element => element.userId === parseInt(userId, 10))
+                                break
+
+                            case 'average-sessions':
+                                response.data.data = USER_AVERAGE_SESSIONS.find(element => element.userId === parseInt(userId, 10))
+                                break
+
+                            case 'performance':
+                                response.data.data = USER_PERFORMANCE.find(element => element.userId === parseInt(userId, 10))
+                                break
+                        
+                            default:
+                                break;
+                        }
+                        const cleanData = retrieveData(response, dataType, service)
+                        setData(cleanData)
+                    } else {
+                        const response = await axios.get(`${baseURL}/${dataType}`)
+
+                        // Manage data by dataType path
+                        const cleanData = retrieveData(response, dataType, service)
+                        setData(cleanData)
                     }
-                    // Manage data by dataType path
-                    const cleanData = retrieveData(response, dataType, service)
-                    setData(cleanData)
                 } catch(err) {
                     console.error(err)
                     setError(err)
@@ -38,7 +68,7 @@ export default function useFetch(dataType, service = null){
                 }
             }
         )()
-    }, [dataType, service, baseURL])
+    }, [dataType, service, baseURL, userId])
 
     return { data, error, loading }
 }
