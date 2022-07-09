@@ -12,16 +12,16 @@ function AsideMenu() {
   return ( 
     <aside className="aside">
       <div className='asideContainer'>
-        <a href="#" className="asideButton">
+        <a href="/" className="asideButton">
           <img src={Bike} alt="" />
         </a>
-        <a href="#" className="asideButton">
+        <a href="/" className="asideButton">
           <img src={Panting} alt="" />
         </a>
-        <a href="#" className="asideButton">
+        <a href="/" className="asideButton">
           <img src={Swim} alt="" />
         </a>
-        <a href="#" className="asideButton">
+        <a href="/" className="asideButton">
           <img src={Yoga} alt="" />
         </a>
       </div>
