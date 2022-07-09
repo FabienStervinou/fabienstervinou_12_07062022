@@ -13,8 +13,8 @@
     "sass": "^1.52.2"
   },
   "scripts": {
-    "start": "REACT_APP_ENV=dev react-scripts start",
-    "prod": "REACT_APP_ENV=prod react-scripts start",
+    "start": "PORT=3001 REACT_APP_ENV=dev react-scripts start",
+    "prod": "PORT=3001 REACT_APP_ENV=prod react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
