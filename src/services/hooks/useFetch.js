@@ -52,12 +52,18 @@ export default function useFetch(dataType, service = null){
                                 break;
                         }
                         const cleanData = retrieveData(response, dataType, service)
+                        if (cleanData === undefined) {
+                            throw new Error('Undefined data')
+                        }
                         setData(cleanData)
                     } else {
                         const response = await axios.get(`${baseURL}/${dataType}`)
 
                         // Manage data by dataType path
                         const cleanData = retrieveData(response, dataType, service)
+                        if (cleanData === undefined) {
+                            throw new Error('Undefined data')
+                        }
                         setData(cleanData)
                     }
                 } catch(err) {
