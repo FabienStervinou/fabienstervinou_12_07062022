@@ -13,20 +13,20 @@ function AsideMenu() {
     <aside className="aside">
       <div className='asideContainer'>
         <a href="/" className="asideButton">
-          <img src={Bike} alt="" />
+          <img src={Bike} alt="Bike" />
         </a>
         <a href="/" className="asideButton">
-          <img src={Panting} alt="" />
+          <img src={Panting} alt="Panting" />
         </a>
         <a href="/" className="asideButton">
-          <img src={Swim} alt="" />
+          <img src={Swim} alt="Swim" />
         </a>
         <a href="/" className="asideButton">
-          <img src={Yoga} alt="" />
+          <img src={Yoga} alt="Yoga" />
         </a>
       </div>
       <p className="copyright">
-        Copiryght, SportSee 2020
+        Copyright, SportSee 2022
       </p>
     </aside>
   );

@@ -1,6 +1,7 @@
 @import '../../assets/styles/_variables.scss';
 
 .header { 
+  grid-area: nav;
   display: flex;
   justify-content: space-between;
   align-items: center;

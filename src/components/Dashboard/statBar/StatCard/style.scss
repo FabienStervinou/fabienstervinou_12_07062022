@@ -3,9 +3,11 @@
 .statCard {
   display: flex;
   flex-direction: row;
+  flex: 1 1 0;
   background-color: $grey-bg;
   border-radius: 5px;
-  padding: 30px;
+  padding: 15px;
+  margin-right: 10px;
 
   &-icon {
     display: flex;
@@ -51,5 +53,25 @@
 
   &-type {
     font-size: 14px;
+  }
+
+  &:last-child {
+    margin-right: 0;
+  }
+}
+
+@media only screen and (min-width: 1150px) {
+  .statCard {
+    flex: 0 1;
+    padding: 30px;
+    margin-right: 10px;
+    margin-bottom: 30px;
+  }
+}
+
+@media only screen and (max-height: 650px) {
+  .statCard {
+    flex: 1 1;
+    padding: 15px;
   }
 }

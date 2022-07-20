@@ -3,12 +3,42 @@
 .dashboardContainer {
   display: grid;
   max-height: calc(100% - 205px);
-  grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: repeat(4, 1fr);
-  grid-gap: 30px;
+  grid-gap: 15px;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(5, 1fr);
   grid-template-areas: 
+    "activity activity activity"
+    "activity activity activity"
+    "objectif performance score"
+    "objectif performance score"
+    "statBar statBar statBar";
+}
+
+@media only screen and (min-width: 1150px) {
+  .dashboardContainer {
+    grid-gap: 30px;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(2, minmax(100px, 150px)) repeat(2, auto);
+    grid-template-areas: 
     "activity activity activity statBar"
     "activity activity activity statBar"
     "objectif performance score statBar"
     "objectif performance score statBar";
+  }
+}
+
+@media only screen and (max-height: 650px) {
+  .dashboardContainer {
+    display: grid;
+    max-height: calc(100% - 205px);
+    grid-gap: 15px;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+    grid-template-areas: 
+      "activity activity activity"
+      "activity activity activity"
+      "objectif performance score"
+      "objectif performance score"
+      "statBar statBar statBar";
+  }
 }

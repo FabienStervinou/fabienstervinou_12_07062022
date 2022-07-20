@@ -1,1 +1,8 @@
 @use '../src/assets/styles/_variables.scss';
+
+.App {
+  display: grid;
+  grid-template-areas: 
+  "nav nav"
+  "aside content";
+}

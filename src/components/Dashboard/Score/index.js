@@ -32,11 +32,13 @@ function Score() {
               <Pie 
                 data={scoreData.data}
                 dataKey="value"
-                innerRadius={85}
-                outerRadius={100}
+                innerRadius={75}
+                outerRadius={90}
                 startAngle={90}
                 endAngle={450}
                 cornerRadius={100}
+                cx="50%"
+                cy="50%"
                 >
                 {scoreData.data.map((entry, index) => (
                   <Cell
@@ -50,8 +52,10 @@ function Score() {
               <Pie
               data={[{name: '', value: 1}]}
               dataKey='value'
-              outerRadius={85}
+              outerRadius={75}
               fill='#FFFFFF'
+              cx="50%"
+              cy="50%"
               >
               </Pie>
           </PieChart>

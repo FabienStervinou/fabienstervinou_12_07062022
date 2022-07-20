@@ -1,14 +1,15 @@
 @import '../../assets/styles/_variables.scss';
 
 main {
-  height: calc(100vh - 90px);
-  padding: 0px 2em;
-  margin: 0px 0 0px 110px;
+  grid-area: content;
+  min-height: 100vh;
+  max-width: 1200px;
+  padding: 0 2em;
 
   h1 {
     font-size: 48px;
     padding-bottom: 15px;
-    padding-top: 40px;
+    padding-top: 25px;
     margin: 0;
 
     .firstname {

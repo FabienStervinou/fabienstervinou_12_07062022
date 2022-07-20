@@ -3,6 +3,22 @@
 .statBar {
   grid-area: statBar;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: space-between;
+  height: fit-content;
+}
+
+@media only screen and (min-width: 1150px) {
+  .statBar {
+    flex-direction: column;
+    height: auto;
+  }
+}
+
+// Duplicate style for height devices case
+@media only screen and (max-height: 650px) {
+  .statBar {
+    flex-direction: row;
+    height: fit-content;
+  }
 }
