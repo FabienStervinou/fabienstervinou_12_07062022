@@ -1,6 +1,7 @@
 import './style.scss';
 import useFetch from '../../../services/hooks/useFetch';
 import { ResponsiveContainer, LineChart, Line, XAxis, YAxis, Tooltip } from 'recharts';
+import PropTypes from 'prop-types';
 
 /**
  * Custom on hover shadow on right part of the chart
@@ -126,3 +127,39 @@ function Objectif() {
 }
 
 export default Objectif;
+
+CustomTickAxis.propTypes = {
+  x: PropTypes.number,
+  y: PropTypes.number,
+  payload: PropTypes.shape({
+    coordinate: PropTypes.number,
+    index: PropTypes.number,
+    isShow: PropTypes.bool,
+    offset: PropTypes.number,
+    tickCoord: PropTypes.number,
+    value: PropTypes.oneOf(['', 'L', 'M', 'J', 'V', 'S', 'D'])
+  })
+}
+
+CustomHover.propTypes = {
+    point: PropTypes.shape({
+      x: PropTypes.number,
+      y: PropTypes.number
+    })
+}
+
+CustomTooltip.propTypes = {
+  active: PropTypes.bool,
+  paylaod: PropTypes.shape({
+    color: PropTypes.string,
+    dataKey: PropTypes.string,
+    fill: PropTypes.string,
+    name: PropTypes.string,
+    payload: PropTypes.shape({
+      day: PropTypes.oneOf(['', 'L', 'M', 'J', 'V', 'S', 'D']),
+      sessionLength: PropTypes.number
+    }),
+    stroke: PropTypes.string,
+    strokeWidth: PropTypes.number,
+  })
+}

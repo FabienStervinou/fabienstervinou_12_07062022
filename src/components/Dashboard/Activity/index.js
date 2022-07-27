@@ -10,6 +10,7 @@ import {
   Legend,
   Bar
 } from 'recharts'
+import PropTypes from 'prop-types';
 
 /**
  * Custom tooltip
@@ -34,10 +35,9 @@ const CustomTooltip = ({ payload, active }) => {
 
 /**
  * It returns a list of items, each of which is a string
- * @param props
  * @returns A list of the two values of the payload array.
  */
-const RenderLegend = (props) => {
+const RenderLegend = () => {
   const payload = [
         { value: 'Poids (kg)'},
         { value: 'Calories brûlées (kCal)' }
@@ -128,3 +128,22 @@ function Activy() {
 }
 
 export default Activy;
+
+CustomTooltip.propTypes = {
+  active: PropTypes.bool,
+  paylaod: PropTypes.shape({
+    color: PropTypes.string,
+    dataKey: PropTypes.string,
+    fill: PropTypes.string,
+    name: PropTypes.string,
+    value: PropTypes.number,
+    payload: PropTypes.shape({
+      day: PropTypes.string,
+      kilogram: PropTypes.number,
+      calories: PropTypes.number,
+      index: PropTypes.number
+    }),
+    stroke: PropTypes.string,
+    strokeWidth: PropTypes.number,
+  })
+}

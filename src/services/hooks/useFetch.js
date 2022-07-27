@@ -1,6 +1,7 @@
 import { useParams } from 'react-router-dom';
 import { useEffect, useState } from "react"
 import axios from "axios"
+import PropTypes from "prop-types"
 
 /**
  * Custom hooks useFetch
@@ -147,4 +148,18 @@ function retrieveData (response, path, service = null) {
         default:
             break;
     }
+}
+
+retrieveData.propTypes = {
+    response: PropTypes.shape({
+        data: PropTypes.shape({
+            data: PropTypes.object
+        })
+    }),
+    path: PropTypes.string.isRequired,
+    service: PropTypes.string
+}
+useFetch.propTypes = {
+    dataType: PropTypes.oneOf(['', 'activity', 'average-sessions', 'performance']),
+    service: PropTypes.string
 }
